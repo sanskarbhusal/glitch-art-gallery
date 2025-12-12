@@ -262,7 +262,7 @@
 
   /* ===== VIM PUZZLE ===== */
   const VimPuzzle = {
-    validCommands: ["q", "q!", "wq"],
+    validCommands: ["q", "q!", "wq", ":q", ":q!", ":wq"],
 
     init() {
       const input = document.getElementById("vim-input")
@@ -530,7 +530,7 @@
       lever.addEventListener("drop", (e) => {
         e.preventDefault()
         lever.style.transform = "scale(1)"
-        this.successfulPull()
+        // this.successfulPull()
       })
 
       // Click and hold alternative
@@ -582,17 +582,17 @@
         })
       }
     },
-
+  
     successfulPull() {
       const modal = document.getElementById("rails-modal")
       const train = document.querySelector(".train-animation")
 
       modal.classList.add("success-effect")
 
-      // Stop the train animation
-      if (train) {
-        train.style.animationPlayState = "paused"
-      }
+    //   // Stop the train animation
+    //   if (train) {
+    //     train.style.animationPlayState = "paused"
+    //   }
 
       setTimeout(() => {
         ModalManager.close("rails", true)
