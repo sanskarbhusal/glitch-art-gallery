@@ -1,0 +1,14 @@
+{
+  "name": "glitch-art-gallery",
+  "version": "1.0.0",
+  "description": "This is a 2 days hackathon project",
+  "author": "Sanskar Bhusal, Salan Katuwal, Anshal Thapa",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "tailwindcss --config ./tailwind.config.js -i ./tailwind/input.css -o ./tailwind/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
