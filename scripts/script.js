@@ -462,7 +462,7 @@
 
   /* ===== RUBY ON RAILS PUZZLE ===== */
   const RailsPuzzle = {
-    validCommands: ["pull_chain()", "stop_train()"],
+    validCommands: ["salary - 6500"],
 
     init() {
       const input = document.getElementById("rails-input")
