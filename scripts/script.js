@@ -413,7 +413,8 @@
 
       // Wrong command
       state.attempts.python++
-      AudioEngine.playHiss()
+      const snake_audio = new Audio('assets/snake_sound.wav');
+      snake_audio.play();
       modal.classList.add("error-glitch")
       setTimeout(() => modal.classList.remove("error-glitch"), 300)
 
@@ -499,7 +500,7 @@
 
       // Show hint after 3 attempts
       if (state.attempts.rails >= 3) {
-        this.showHint("Hint (नेपाली): चेन तान्नुहोस् — Pull the chain to stop the train.")
+        this.showHint("Hint : Write something related to HR.")
       }
     },
 
@@ -608,6 +609,35 @@
     },
   }
 
+    /* ===== TEAM MEMBER POPUP (NO PUZZLE) ===== */
+  const TeamPopup = {
+    init() {
+      const closeBtn = document.querySelector(".close-team-btn")
+      if (!closeBtn) return
+
+      closeBtn.addEventListener("click", () => {
+        ModalManager.close("team", false)
+      })
+
+      // Also allow keyboard close
+      closeBtn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          ModalManager.close("team", false)
+        }
+      })
+    },
+  }
+
+  /**
+   * Opens the Team Member popup (simple image display, no puzzle)
+   */
+  function openTeamPopup() {
+    console.log("[v0] Opening Team Member popup")
+    ModalManager.open("team")
+    ModalManager.open("team2")
+  }
+
   /* ===== KEYBOARD SHORTCUTS ===== */
   const KeyboardHandler = {
     init() {
@@ -625,6 +655,8 @@
       })
     },
   }
+
+  
 
   /* ================================
      DRAG & DROP LOGIC — START
@@ -819,6 +851,7 @@
     VimPuzzle.init()
     PythonPuzzle.init()
     RailsPuzzle.init()
+    TeamPopup.init()
 
     DragDropManager.init()
 
@@ -832,4 +865,7 @@
   } else {
     init()
   }
+
+  
 })()
+
