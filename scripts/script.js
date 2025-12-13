@@ -8,6 +8,7 @@
  * - Attempt tracking and hints
  * - Sound synthesis with Web Audio API
  * - Keyboard interactions
+ * - Drag-and-drop functionality for the Meme Generator
  *
  * DEV NOTE: Set DEV_SAFE_CLOSE to true during development to allow Esc key to close modals
  */
@@ -28,6 +29,8 @@
     zenRevealed: false,
     chainPulling: false,
     chainHoldTimer: null,
+    selectedButton: null,
+    draggedMemeType: null,
   }
 
   /* ===== AUDIO SYNTHESIS ===== */
@@ -262,7 +265,7 @@
 
   /* ===== VIM PUZZLE ===== */
   const VimPuzzle = {
-    validCommands: ["q", "q!", "wq", ":q", ":q!", ":wq"],
+    validCommands: ["q", "q!", "wq"],
 
     init() {
       const input = document.getElementById("vim-input")
@@ -577,22 +580,22 @@
           }, 10)
 
           if (state.attempts.rails >= 3) {
-            this.showHint("Hint (नेपाली): चेन तान्नुहोस् — Pull the chain to stop the train.")
+            this.showHint("Hint: write something related to HR.")
           }
         })
       }
     },
-  
+
     successfulPull() {
       const modal = document.getElementById("rails-modal")
       const train = document.querySelector(".train-animation")
 
       modal.classList.add("success-effect")
 
-    //   // Stop the train animation
-    //   if (train) {
-    //     train.style.animationPlayState = "paused"
-    //   }
+      // Stop the train animation
+      if (train) {
+        train.style.animationPlayState = "paused"
+      }
 
       setTimeout(() => {
         ModalManager.close("rails", true)
@@ -623,6 +626,185 @@
     },
   }
 
+  /* ================================
+     DRAG & DROP LOGIC — START
+     ================================ */
+
+  const DragDropManager = {
+    /**
+     * Initializes all drag-and-drop functionality for the Meme Generator
+     */
+    init() {
+      const tryButtons = document.querySelectorAll(".try-btn")
+      const dropZone = document.getElementById("meme-generator")
+
+      if (!dropZone) {
+        console.warn("[v0] Meme Generator drop zone not found")
+        return
+      }
+
+      // Setup each draggable button
+      tryButtons.forEach((btn) => {
+        this.makeDraggable(btn)
+      })
+
+      // Setup drop zone
+      this.setupDropZone(dropZone)
+
+      console.log("[v0] Drag & Drop initialized")
+    },
+
+    /**
+     * Makes a button draggable and adds keyboard interaction
+     * @param {HTMLElement} button - The button to make draggable
+     */
+    makeDraggable(button) {
+      // Handle drag start - store which meme type is being dragged
+      button.addEventListener("dragstart", (e) => {
+        const memeType = button.getAttribute("data-target")
+        state.draggedMemeType = memeType
+
+        // Set the data transfer (used during drop)
+        e.dataTransfer.effectAllowed = "move"
+        e.dataTransfer.setData("text/plain", memeType)
+
+        // Visual feedback
+        button.classList.add("dragging")
+        button.setAttribute("aria-grabbed", "true")
+
+        console.log(`[v0] Started dragging ${memeType}`)
+      })
+
+      // Handle drag end - cleanup
+      button.addEventListener("dragend", (e) => {
+        button.classList.remove("dragging")
+        button.setAttribute("aria-grabbed", "false")
+        state.draggedMemeType = null
+
+        console.log("[v0] Drag ended")
+      })
+
+      // Keyboard accessibility - select button with Enter/Space
+      button.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+
+          // Toggle selection
+          if (state.selectedButton === button) {
+            // Deselect
+            button.classList.remove("selected")
+            button.setAttribute("aria-grabbed", "false")
+            state.selectedButton = null
+            console.log("[v0] Button deselected")
+          } else {
+            // Deselect previous
+            if (state.selectedButton) {
+              state.selectedButton.classList.remove("selected")
+              state.selectedButton.setAttribute("aria-grabbed", "false")
+            }
+
+            // Select this button
+            button.classList.add("selected")
+            button.setAttribute("aria-grabbed", "true")
+            state.selectedButton = button
+            console.log(`[v0] Selected ${button.getAttribute("data-target")} button`)
+          }
+        }
+      })
+
+      // Prevent default click behavior
+      button.addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        console.log("[v0] Button click prevented - use drag-and-drop instead")
+      })
+    },
+
+    /**
+     * Sets up the drop zone to receive draggable buttons
+     * @param {HTMLElement} dropZone - The meme generator drop zone
+     */
+    setupDropZone(dropZone) {
+      // Prevent default behavior to allow drop
+      dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault()
+        e.dataTransfer.dropEffect = "move"
+
+        // Visual feedback - highlight drop zone
+        dropZone.classList.add("drag-over")
+      })
+
+      // Remove highlight when dragging leaves
+      dropZone.addEventListener("dragleave", (e) => {
+        // Only remove if leaving the dropzone itself, not child elements
+        if (e.target === dropZone) {
+          dropZone.classList.remove("drag-over")
+        }
+      })
+
+      // Handle drop - open the appropriate modal
+      dropZone.addEventListener("drop", (e) => {
+        e.preventDefault()
+
+        // Get the meme type from the data transfer
+        const memeType = e.dataTransfer.getData("text/plain")
+
+        // Remove highlight
+        dropZone.classList.remove("drag-over")
+
+        if (memeType) {
+          console.log(`[v0] Dropped ${memeType} into Meme Generator`)
+
+          // Play glitch sound
+          AudioEngine.playHiss()
+
+          // Add visual feedback animation
+          dropZone.style.animation = "none"
+          setTimeout(() => {
+            dropZone.style.animation = ""
+          }, 10)
+
+          // Open the modal after brief delay for effect
+          setTimeout(() => {
+            ModalManager.open(memeType)
+          }, 200)
+        }
+      })
+
+      // Keyboard accessibility - drop selected button with Enter
+      dropZone.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault()
+
+          if (state.selectedButton) {
+            const memeType = state.selectedButton.getAttribute("data-target")
+
+            console.log(`[v0] Keyboard drop: ${memeType}`)
+
+            // Deselect button
+            state.selectedButton.classList.remove("selected")
+            state.selectedButton.setAttribute("aria-grabbed", "false")
+            state.selectedButton = null
+
+            // Play glitch sound
+            AudioEngine.playHiss()
+
+            // Open modal
+            setTimeout(() => {
+              ModalManager.open(memeType)
+            }, 200)
+          } else {
+            console.log("[v0] No button selected - select a button first with Enter/Space")
+          }
+        }
+      })
+    },
+  }
+
+  /* ================================
+     DRAG & DROP LOGIC — END
+     ================================ */
+
   /* ===== INITIALIZATION ===== */
   function init() {
     console.log("[v0] Initializing Glitch Art Gallery")
@@ -638,24 +820,7 @@
     PythonPuzzle.init()
     RailsPuzzle.init()
 
-    // Setup card click handlers
-    const tryButtons = document.querySelectorAll(".try-btn")
-    tryButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-target")
-        ModalManager.open(target)
-      })
-    })
-
-    // Make cards clickable
-    const cards = document.querySelectorAll(".meme-card")
-    cards.forEach((card) => {
-      card.addEventListener("click", (e) => {
-        if (e.target.classList.contains("try-btn")) return
-        const cardType = card.getAttribute("data-card")
-        ModalManager.open(cardType)
-      })
-    })
+    DragDropManager.init()
 
     console.log("[v0] Gallery initialized successfully")
     console.log(`[v0] DEV_SAFE_CLOSE is ${DEV_SAFE_CLOSE ? "ENABLED" : "DISABLED"}`)

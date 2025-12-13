@@ -209,6 +209,8 @@ body.modal-open {
   border: none;
   font-weight: bold;
   transition: all 0.3s ease;
+  /* <CHANGE> Added cursor grab for draggable buttons */
+  cursor: grab;
 }
 
 .try-btn:hover,
@@ -216,6 +218,184 @@ body.modal-open {
   background: var(--glitch-color-2);
   transform: translateX(5px);
   color: #000;
+}
+
+/* <CHANGE> Added active state for dragging */
+.try-btn:active {
+  cursor: grabbing;
+  opacity: 0.7;
+}
+
+/* <CHANGE> Added style when button is being dragged */
+.try-btn.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+
+/* ================================
+   MEME GENERATOR DROP ZONE STYLES
+   ================================ */
+
+.meme-generator-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.meme-generator-dropzone {
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  padding: 2rem;
+  background: rgba(255, 0, 255, 0.05);
+  border: 3px dashed var(--glitch-color-1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.meme-generator-dropzone::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(45deg, var(--glitch-color-1), var(--glitch-color-2), var(--glitch-color-3));
+  opacity: 0;
+  z-index: -1;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
+  animation: border-pulse 3s infinite;
+}
+
+@keyframes border-pulse {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+}
+
+.meme-generator-dropzone:hover::before,
+.meme-generator-dropzone:focus::before {
+  opacity: 0.3;
+}
+
+/* Active drop zone state when dragging over */
+.meme-generator-dropzone.drag-over {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: var(--glitch-color-2);
+  border-style: solid;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.meme-generator-dropzone.drag-over::before {
+  opacity: 0.6;
+  animation: glitch-pulse 0.3s infinite;
+}
+
+@keyframes glitch-pulse {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-2px, 2px);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+  75% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+.dropzone-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.meme-generator-dropzone.drag-over .dropzone-icon {
+  animation: spin-icon 0.5s linear infinite;
+  filter: drop-shadow(0 0 10px var(--glitch-color-2));
+}
+
+@keyframes spin-icon {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dropzone-title {
+  font-size: 1.8rem;
+  color: var(--glitch-color-1);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--glitch-color-1);
+}
+
+.meme-generator-dropzone.drag-over .dropzone-title {
+  color: var(--glitch-color-2);
+  text-shadow: 0 0 20px var(--glitch-color-2);
+  animation: glitch-text 0.3s infinite;
+}
+
+@keyframes glitch-text {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+}
+
+.dropzone-text {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.meme-generator-dropzone.drag-over .dropzone-text {
+  opacity: 1;
+  color: var(--glitch-color-2);
+}
+
+/* Selected button state for keyboard interaction */
+.try-btn.selected {
+  outline: 3px solid var(--glitch-color-2);
+  outline-offset: 3px;
+  box-shadow: 0 0 20px var(--glitch-color-2);
 }
 
 /* ===== MODAL/OVERLAY BASE STYLES ===== */
