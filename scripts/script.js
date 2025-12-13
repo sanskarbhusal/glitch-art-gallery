@@ -13,7 +13,7 @@
  * DEV NOTE: Set DEV_SAFE_CLOSE to true during development to allow Esc key to close modals
  */
 
-;(() => {
+; (() => {
   /* ===== CONFIGURATION ===== */
   const DEV_SAFE_CLOSE = true // Set to false in production to enforce puzzle solving
 
@@ -609,21 +609,21 @@
     },
   }
 
-    /* ===== TEAM MEMBER POPUP (NO PUZZLE) ===== */
+  /* ===== TEAM MEMBER POPUP (NO PUZZLE) ===== */
   const TeamPopup = {
     init() {
       const closeBtn = document.querySelector(".close-team-btn")
       if (!closeBtn) return
 
       closeBtn.addEventListener("click", () => {
-        ModalManager.close("team", false)
+        ModalManager.close("team", false);
       })
 
       // Also allow keyboard close
       closeBtn.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault()
-          ModalManager.close("team", false)
+          ModalManager.close("team", false);
         }
       })
     },
@@ -656,7 +656,7 @@
     },
   }
 
-  
+
 
   /* ================================
      DRAG & DROP LOGIC — START
@@ -866,6 +866,6 @@
     init()
   }
 
-  
+
 })()
 
