@@ -268,23 +268,25 @@
     validCommands: ['cy.get("#exit").click()'],
 
     init() {
-      const input = document.getElementById("vim-input")
+      const input = document.getElementById("cypress-execute")
       if (!input) return
 
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          this.handleCommand(input.value.trim())
-          input.value = ""
-        }
+      input.onclick = () => { alert("clicked") }
+      // input.addEventListener("keydown", (e) => {
+      //   if (e.key === "Enter") {
+      //     this.handleCommand(input.value.trim())
+      //     input.value = ""
+      //   }
 
-        // Handle CTRL+[ (common Vim escape)
-        if (e.ctrlKey && e.key === "[") {
-          e.preventDefault()
-          this.showHint("HINT: Expected to find element: 'exit', but never found it.")
-        }
-      })
+      //   // Handle CTRL+[ (common Vim escape)
+      //   if (e.ctrlKey && e.key === "[") {
+      //     e.preventDefault()
+      //     this.showHint("HINT: Expected to find element: 'exit', but never found it.")
+      //   }
+      // })
     },
 
+    // cypress hook
     handleCommand(command) {
       const output = document.querySelector("#cypress-modal .terminal-output")
       const modal = document.getElementById("cypress-modal")
