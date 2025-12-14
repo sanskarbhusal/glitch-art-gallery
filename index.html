@@ -267,21 +267,26 @@
     </main>
 
     <!-- CYPRESS Modal Overlay -->
-    <div id="cypress-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="cypress-title" hidden>
+    <div id="cypress-modal" class="puzzle-modal " role="dialog" aria-modal="true" aria-labelledby="cypress-title"
+        hidden>
         <div class="modal-content-wrapper cypress-terminal">
             <div class="terminal-content">
                 <h2 id="cypress-title" class="terminal-title text-center">Can you automate?</h2>
+                <div></div>
                 <div class="flex justify-center">
                     <img src="assets/cypress.jpg" alt="" style="max-width: 100%;">
                 </div>
-                <pre>
+                <pre class="min-h-6 overflow-y-auto focus:outline-0" contenteditable="true" spellcheck="false">
                 <code class="language-javascript">
                            cy.get("#").click();
                 </code>
                 </pre>
-                <div class="hint-area" aria-live="assertive"></div>
+                <div class="w-ful pt-3 flex justify-center items-center">
+                    <button id="cypress-execute"
+                        class="p-2  border-[2px] border-green-600 font-extrabold rounded-lg hover:scale-105 active:scale-95">Execute</button>
+                </div>
+                <!-- <div class="hint-area" aria-live="assertive"></div> -->
             </div>
-            <button id="cypress-execute">Execute</button>
         </div>
     </div>
 
