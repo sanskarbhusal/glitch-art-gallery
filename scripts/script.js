@@ -286,8 +286,8 @@
     },
 
     handleCommand(command) {
-      const output = document.querySelector("#vim-modal .terminal-output")
-      const modal = document.getElementById("vim-modal")
+      const output = document.querySelector("#cypress-modal .terminal-output")
+      const modal = document.getElementById("cypress-modal")
 
       // Check if valid exit command
       if (this.validCommands.includes(command.toLowerCase())) {
@@ -305,7 +305,7 @@
         modal.classList.add("success-effect")
 
         setTimeout(() => {
-          ModalManager.close("vim", true)
+          ModalManager.close("cypress", true)
         }, 800)
         return
       }
@@ -337,7 +337,7 @@
     },
 
     showHint(message) {
-      const hintArea = document.querySelector("#vim-modal .hint-area")
+      const hintArea = document.querySelector("#cypress-modal .hint-area")
       hintArea.textContent = message
     },
   }
