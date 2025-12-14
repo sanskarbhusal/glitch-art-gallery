@@ -459,9 +459,9 @@
     },
   }
 
-  /* ===== RUBY ON RAILS PUZZLE ===== */
+  /* =====  ON RAILS PUZZLE ===== */
   const RailsPuzzle = {
-    validCommands: ["salary - 6500"],
+    validCommands: "salary-6500".split(""),
 
     init() {
       const input = document.getElementById("rails-input")
@@ -482,7 +482,12 @@
       const modal = document.getElementById("rails-modal")
 
       // Check if valid command
-      if (this.validCommands.includes(command)) {
+      const splitCommand = command.split("").filter((item) => item != " ")
+      const result = splitCommand.map((item) => {
+        return this.validCommands.includes(item)
+      })
+
+      if (!result.includes(false)) {
         this.successfulPull()
         return
       }
