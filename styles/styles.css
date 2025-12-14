@@ -514,8 +514,6 @@ body.modal-open {
 .terminal-title {
   color: var(--text-primary);
   font-size: 1.5rem;
-  margin-bottom: 2rem;
-  margin-top: -2rem;
   text-shadow: 0 0 10px var(--text-primary);
 }
 
@@ -680,7 +678,6 @@ body.modal-open {
 
 .train-scene {
   position: relative;
-  height: 150px;
   margin-bottom: 2rem;
   background: linear-gradient(180deg, #87ceeb 0%, #5f9ea0 100%);
   border: 2px solid #333;
