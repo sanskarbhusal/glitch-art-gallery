@@ -310,41 +310,22 @@
     <div id="rails-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="rails-title" hidden>
         <div class="modal-content-wrapper rails-scene">
             <div class="train-scene">
-                <div class="train-track"></div>
-                <div class="diamond" aria-hidden="true">💎</div>
                 <div class="train-animation" aria-hidden="true">
-                    <img src="assets/ruby_on_rail.png" alt="" class="train-image">
+                    <img src="assets/ruby_on_rail.jpg" alt="" class="">
                 </div>
             </div>
-            <div class="rails-content">
-                <h2 id="rails-title" class="rails-title">RUBY Di on Rail</h2>
-                <p class="rails-instruction">"Ruby is so unpopular that we had to put Ruby didi on train to make this
-                    meme"</p>
 
-                <!-- Draggable Chain -->
-                <div class="chain-container">
-                    <div class="pull-chain" draggable="true" role="button" tabindex="0"
-                        aria-label="Emergency chain - drag to lever or hold to pull"
-                        aria-describedby="chain-instructions">
-                        <span class="chain-link">⛓️</span>
-                        <span class="chain-handle">🔴</span>
-                    </div>
-                    <div class="emergency-lever" aria-hidden="true">
-                        <span>🚨 LEVER 🚨</span>
-                    </div>
-                </div>
-
-                <!-- Alternative keyboard input -->
-                <div class="rails-input-wrapper">
-                    <label for="rails-input" class="visually-hidden">Enter command to stop train</label>
-                    <span class="rails-prompt">Ruby: </span>
-                    <input type="text" id="rails-input" class="rails-input" autocomplete="off" spellcheck="false"
-                        aria-describedby="chain-instructions">
-                </div>
-
-                <div class="hint-area" aria-live="assertive"></div>
+            <!-- Alternative keyboard input -->
+            <div class="rails-input-wrapper">
+                <label for="rails-input" class="visually-hidden">Enter command to stop train</label>
+                <span class="rails-prompt">Ruby: </span>
+                <input type="text" id="rails-input" class="rails-input" autocomplete="off" spellcheck="false"
+                    aria-describedby="chain-instructions">
             </div>
+
+            <div class="hint-area" aria-live="assertive"></div>
         </div>
+    </div>
     </div>
 
     <!-- Team Member Modal Overlay -->
