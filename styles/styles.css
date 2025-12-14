@@ -426,6 +426,8 @@ body.modal-open {
   border: 3px solid var(--glitch-color-1);
   background: var(--bg-terminal);
   animation: content-glitch 0.2s ease-out;
+  overflow: auto;
+  max-height: 100%;
 }
 
 @keyframes content-glitch {
@@ -449,6 +451,7 @@ body.modal-open {
   background: #000;
   color: var(--text-primary);
   font-family: "Courier New", monospace;
+  overflow: auto;
 }
 
 .terminal-bg {
@@ -472,6 +475,7 @@ body.modal-open {
 .terminal-content {
   position: relative;
   z-index: 1;
+  overflow: auto !important;
 }
 
 .terminal-title {
@@ -487,6 +491,7 @@ body.modal-open {
   padding: 1rem;
   background: rgba(0, 255, 0, 0.05);
   border: 1px solid var(--text-primary);
+  overflow: auto;
 }
 
 .terminal-line {
@@ -839,6 +844,7 @@ body.modal-open {
 
   .modal-content-wrapper {
     padding: 1rem;
+    overflow: auto;
   }
 
   .cpu-animation {

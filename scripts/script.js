@@ -15,7 +15,7 @@
 
 ; (() => {
   /* ===== CONFIGURATION ===== */
-  const DEV_SAFE_CLOSE = true // Set to false in production to enforce puzzle solving
+  const DEV_SAFE_CLOSE = false // Set to false in production to enforce puzzle solving
 
   /* ===== STATE MANAGEMENT ===== */
   const state = {
@@ -241,13 +241,13 @@
       const output = modal.querySelector(".terminal-output, .console-output")
       if (output && modalId === "vim") {
         output.innerHTML = `
-                    <p class="terminal-line">~ Welcome to VIM ~</p>
-                    <p class="terminal-line">~ Type a command to exit ~</p>
+                    <p class="terminal-line">~ Welcome to the world of cypress ~</p>
+                    <p class="terminal-line">~ Type something to exit ~</p>
                     <p class="terminal-line">~</p>
                 `
       } else if (output && modalId === "python") {
         output.innerHTML = `
-                    <p class="console-line">Python 3.11.0 (main, Oct 24 2022, 18:26:48)</p>
+                    <p class="console-line">Python 3.11.0 (main, Dec 15 2025, 15:26:48)</p>
                     <p class="console-line">Type commands to interact with the serpent...</p>
                     <p class="console-line">&gt;&gt;&gt;</p>
                 `
@@ -432,7 +432,7 @@
 
       // Show hint after 4 attempts
       if (state.attempts.python >= 4) {
-        this.showHint("HINT: Python has exit() and quit() commands")
+        this.showHint("Alert: Please exit fast the snake is getting angry")
       }
 
       output.scrollTop = output.scrollHeight
