@@ -269,9 +269,12 @@
 
     init() {
       const input = document.getElementById("cypress-execute")
+      const cypressCode = document.getElementById("cypress-code")
       if (!input) return
+      input.onclick = () => {
+        this.handleCommand(cypressCode.innerText.trim())
+      }
 
-      input.onclick = () => { alert("clicked") }
       // input.addEventListener("keydown", (e) => {
       //   if (e.key === "Enter") {
       //     this.handleCommand(input.value.trim())
@@ -286,29 +289,19 @@
       // })
     },
 
-    // cypress hook
+    // hook
     handleCommand(command) {
       const output = document.querySelector("#cypress-modal .terminal-output")
       const modal = document.getElementById("cypress-modal")
 
       // Check if valid exit command
-      if (this.validCommands.includes(command.toLowerCase())) {
-        const line = document.createElement("p")
-        line.className = "terminal-line"
-        line.textContent = `:${command}`
-        output.appendChild(line)
-
-        const successLine = document.createElement("p")
-        successLine.className = "terminal-line"
-        successLine.textContent = "Exit code: 1"
-        successLine.style.color = "#00ff00"
-        output.appendChild(successLine)
+      if (command == 'cy.get("#exit").click()' || command == 'cy.get("#exit").click();') {
 
         modal.classList.add("success-effect")
 
         setTimeout(() => {
           ModalManager.close("cypress", true)
-        }, 800)
+        }, 0)
         return
       }
 
