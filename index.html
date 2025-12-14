@@ -44,19 +44,15 @@
         <!-- Meme Cards Grid -->
         <section class="cards-section py-5">
             <div class="container">
-                <div class="row g-4 justify-content-center">
+                <div class="row">
 
-                    <!-- VIM Card -->
+                    <!-- Cypress Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="vim">
-                            <figure class="card-img-wrapper mb-0">
-                                <img src="assets/vim.jpg" class="card-img-top"
-                                    alt="Vim washing sponge meme - text editor that's hard to quit">
-                            </figure>
+                        <article class="card meme-card" data-card="vim">
                             <div class="card-body d-flex flex-column">
-                                <h3 class="card-title h4">VIM</h3>
+                                <h3 class="card-title h4">Cypress</h3>
                                 <p class="card-text mb-3">Text-mode horror: The editor you can't escape.</p>
-                                <button class="btn btn-primary mt-auto try-btn" data-target="vim" draggable="true"
+                                <button class="btn btn-primary try-btn" data-target="vim" draggable="true"
                                     aria-label="Drag Vim puzzle to Meme Generator" aria-grabbed="false">
                                     Try →
                                 </button>
@@ -66,15 +62,16 @@
 
                     <!-- Python Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="python">
-                            <!-- <figure class="card-img-wrapper mb-0">
-                                <img src="assets/python.png" class="card-img-top"
-                                    alt="Python snake coiled inside CPU chip">
-                            </figure> -->
+                        <article class="card meme-card" data-card="python">
                             <div class="card-body d-flex flex-column">
-                                <h3 class="card-title h4">PYTHON</h3>
-                                <p class="card-text mb-3">Snake in the CPU: Beautiful is better than ugly.</p>
-                                <button class="btn btn-primary mt-auto try-btn" data-target="python" draggable="true"
+                                <h3 class="card-title h4">Odoo</h3>
+                                <p class="card-text">
+                                    <ul class="text-danger">
+                                        <li>One app to rule your business</li>
+                                        <li>One update to crash them all</li>
+                                        <li>One update to test your patience</li>
+                                    </ul></p>
+                                <button class="btn btn-primary try-btn" data-target="python" draggable="true"
                                     aria-label="Drag Python puzzle to Meme Generator" aria-grabbed="false">
                                     Try →
                                 </button>
@@ -84,11 +81,11 @@
 
                     <!-- Ruby on Rails Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="rails">
-                            <figure class="card-img-wrapper mb-0">
+                        <article class="card meme-card" data-card="rails">
+                            <!-- <figure class="card-img-wrapper mb-0">
                                 <img src="assets/ruby_on_rail.png" class="card-img-top"
                                     alt="Ruby gemstone sitting on Nepali train tracks">
-                            </figure>
+                            </figure> -->
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title h4">RUBY ON RAILS</h3>
                                 <p class="card-text mb-3">Rudy di on the rail: Pull the chain to stop.</p>
@@ -102,11 +99,11 @@
 
                 </div>
 
-                <div class="row g-4 justify-content-center">
+                <div class="row">
 
                     <!-- Team Member Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="team">
+                        <article class="card meme-card" data-card="team">
                             <!-- <figure class="card-img-wrapper mb-0">
                         <img src="assets/team-placeholder.png" class="card-img-top"
                             alt="Random team member meme placeholder">
@@ -125,7 +122,7 @@
 
                     <!-- Team Member Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="team2">
+                        <article class="card meme-card" data-card="team2">
                             <!-- <figure class="card-img-wrapper mb-0">
                         <img src="assets/team-placeholder.png" class="card-img-top"
                             alt="Random team member meme placeholder">
@@ -144,7 +141,7 @@
 
                     <!-- Team Member Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="team">
+                        <article class="card meme-card" data-card="team">
                             <!-- <figure class="card-img-wrapper mb-0">
                         <img src="assets/team-placeholder.png" class="card-img-top"
                             alt="Random team member meme placeholder">
@@ -167,7 +164,7 @@
 
                     <!-- Team Member Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="team">
+                        <article class="card meme-card" data-card="team">
                             <!-- <figure class="card-img-wrapper mb-0">
                         <img src="assets/team-placeholder.png" class="card-img-top"
                             alt="Random team member meme placeholder">
@@ -185,7 +182,7 @@
 
                     <!-- Team Member Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="team">
+                        <article class="card meme-card" data-card="team">
                             <!-- <figure class="card-img-wrapper mb-0">
                         <img src="assets/team-placeholder.png" class="card-img-top"
                             alt="Random team member meme placeholder">
@@ -203,7 +200,7 @@
 
                     <!-- Team Member Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card h-100" data-card="team">
+                        <article class="card meme-card" data-card="team">
                             <!-- <figure class="card-img-wrapper mb-0">
                         <img src="assets/team-placeholder.png" class="card-img-top"
                             alt="Random team member meme placeholder">
@@ -259,14 +256,14 @@
     <!-- VIM Modal Overlay -->
     <div id="vim-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="vim-title" hidden>
         <div class="modal-content-wrapper vim-terminal">
-            <div class="terminal-bg">
-                <img src="assets/vim.jpg" alt="" aria-hidden="true" class="terminal-bg-image">
-            </div>
             <div class="terminal-content">
-                <h2 id="vim-title" class="terminal-title">VIM - The Inescapable Editor</h2>
+                <h2 id="vim-title" class="terminal-title">Cypress: Green tests, happy devs</h2>
+            <div>
+                <img src="assets/cypress.jpg" alt="" style="max-width: 100%;">
+            </div>
                 <div class="terminal-output" aria-live="polite" aria-atomic="true">
-                    <p class="terminal-line">~ Welcome to VIM ~</p>
-                    <p class="terminal-line">~ Type a command to exit ~</p>
+                    <p class="terminal-line">~ Welcome to Cypress ~</p>
+                    <p class="terminal-line">~ Type something to exit ~</p>
                     <p class="terminal-line">~</p>
                 </div>
                 <div class="terminal-input-wrapper">
@@ -276,9 +273,6 @@
                         aria-describedby="vim-instructions">
                     <span class="cursor-blink">█</span>
                 </div>
-                <p id="vim-instructions" class="visually-hidden">
-                    Type a VIM exit command such as :q, :q!, or :wq and press Enter to close this puzzle.
-                </p>
                 <div class="hint-area" aria-live="assertive"></div>
             </div>
         </div>
@@ -288,41 +282,24 @@
     <div id="python-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="python-title" hidden>
         <div class="modal-content-wrapper python-console">
             <div class="console-content">
-                <h2 id="python-title" class="console-title">PYTHON - Snake in the CPU</h2>
+                <h2 id="python-title" class="console-title">PYTHON (Od00) - Snake in the Server</h2>
                 <div class="cpu-animation">
                     <div class="cpu-chip">
-                        <video class="cpu-bg-image" autoplay muted loop playsinline aria-hidden="true">
-                            <source src="assets/python.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="snake-path" aria-hidden="true"></div>
+                        <img src="assets/odoo_1.png" alt="" class="python-image">
                     </div>
                 </div>
                 <div class="console-output" aria-live="polite">
-                    <p class="console-line">Python 3.11.0 (main, Oct 24 2022, 18:26:48)</p>
-                    <p class="console-line">Type commands to interact with the serpent...</p>
-                    <p class="console-line">&gt;&gt;&gt;</p>
+                    <p class="console-line text-danger">Python 3.11.0 (main, Oct 24 2022, 18:26:48)</p>
+                    <p class="console-line text-danger">Type commands to interact with the serpent...</p>
+                    <p class="console-line text-danger">&gt;&gt;&gt;</p>
                 </div>
                 <div class="console-input-wrapper">
                     <label for="python-input" class="visually-hidden">Enter Python command</label>
-                    <span class="console-prompt">&gt;&gt;&gt; </span>
+                    <span class="console-prompt text-danger">&gt;&gt;&gt; </span>
                     <input type="text" id="python-input" class="console-input" autocomplete="off" spellcheck="false"
                         aria-describedby="python-instructions">
                 </div>
-                <p id="python-instructions" class="visually-hidden">
-                    Type a Python command such as exit() or quit() to close this puzzle. You can also try import this
-                    for a hint.
-                </p>
                 <div class="hint-area" aria-live="assertive"></div>
-
-                <!-- Optional mini-game for mobile -->
-                <div class="snake-game" hidden>
-                    <p>Tap the snake 5 times to reveal the exit command!</p>
-                    <button class="btn btn-sm btn-outline-light snake-tap-target" aria-label="Tap to catch the snake">
-                        🐍
-                    </button>
-                    <p class="tap-count">Taps: <span>0</span>/5</p>
-                </div>
             </div>
         </div>
     </div>

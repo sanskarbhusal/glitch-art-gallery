@@ -265,7 +265,7 @@
 
   /* ===== VIM PUZZLE ===== */
   const VimPuzzle = {
-    validCommands: ["q", "q!", "wq"],
+    validCommands: ['cy.get("#exit").click()'],
 
     init() {
       const input = document.getElementById("vim-input")
@@ -280,7 +280,7 @@
         // Handle CTRL+[ (common Vim escape)
         if (e.ctrlKey && e.key === "[") {
           e.preventDefault()
-          this.showHint("HINT: You're on the right track, but try typing a command starting with :")
+          this.showHint("HINT: Expected to find element: 'exit', but never found it.")
         }
       })
     },
@@ -298,7 +298,7 @@
 
         const successLine = document.createElement("p")
         successLine.className = "terminal-line"
-        successLine.textContent = "~ Exiting VIM... Success! ~"
+        successLine.textContent = "Exit code: 1"
         successLine.style.color = "#00ff00"
         output.appendChild(successLine)
 
@@ -324,12 +324,12 @@
       const errorLine = document.createElement("p")
       errorLine.className = "terminal-line"
       errorLine.style.color = "#ff0000"
-      errorLine.textContent = "E37: No write since last change (add ! to override)"
+      errorLine.textContent = "failed because this element is not visible"
       output.appendChild(errorLine)
 
       // Show hint after 3 attempts
       if (state.attempts.vim >= 3) {
-        this.showHint("HINT: Try a VIM command to exit (:q, :q!, or :wq)")
+        this.showHint("HINT: Try a cypress command to exit")
       }
 
       // Scroll to bottom

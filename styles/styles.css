@@ -186,22 +186,6 @@ body.modal-open {
   border-color: var(--glitch-color-2);
 }
 
-.card-img-wrapper {
-  overflow: hidden;
-  height: 200px;
-  background: #000;
-}
-
-.meme-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.meme-card:hover img {
-  transform: scale(1.05);
-}
 .card-title,.card-text{
     color: white;
 }
@@ -564,11 +548,11 @@ body.modal-open {
   pointer-events: none;
 }
 
-.cpu-chip {
+/* .cpu-chip {
   position: relative;
   width: 100%;
   height: 100%;
-}
+} */
 
 .cpu-bg-image {
   width: 100%;
@@ -995,4 +979,9 @@ span.text-muted{
   background: var(--glitch-color-1);
   transform: scale(1.05);
   box-shadow: 0 0 20px var(--glitch-color-1);
+}
+
+.python-image{
+  width: 90%;
+  height: 400px;
 }
