@@ -14,6 +14,7 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="./tailwind/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
 </head>
 
 <body>
@@ -49,12 +50,12 @@
 
                     <!-- Cypress Card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card" data-card="vim">
+                        <article class="card meme-card" data-card="cypress">
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title h4">Cypress</h3>
                                 <p class="card-text mb-3">Open at your own risk</p>
-                                <button class="btn btn-primary try-btn" data-target="vim" draggable="true"
-                                    aria-label="Drag Vim puzzle to Meme Generator" aria-grabbed="false">
+                                <button class="btn btn-primary try-btn" data-target="cypress" draggable="true"
+                                    aria-label="Drag Cypress puzzle to Meme Generator" aria-grabbed="false">
                                     Try →
                                 </button>
                             </div>
@@ -265,29 +266,29 @@
         </footer>
     </main>
 
-    <!-- VIM Modal Overlay -->
-    <div id="vim-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="vim-title" hidden>
-        <div class="modal-content-wrapper vim-terminal">
-            <div class="terminal-content">
-                <h2 id="vim-title" class="terminal-title">Cypress: Green tests, happy devs</h2>
-                <div>
-                    <img src="assets/cypress.jpg" alt="" style="max-width: 100%;">
-                </div>
-                <div class="terminal-output" aria-live="polite" aria-atomic="true">
-                    <p class="terminal-line">~ Welcome to  the world of Cypress ~</p>
-                    <p class="terminal-line">~ Type something to exit ~</p>
-                    <p class="terminal-line">~</p>
-                </div>
-                <div class="terminal-input-wrapper">
-                    <label for="vim-input" class="visually-hidden">Enter cypress command</label>
-                    <span class="terminal-prompt">:</span>
-                    <input type="text" id="vim-input" class="terminal-input" autocomplete="off" spellcheck="false"
-                        aria-describedby="vim-instructions">
-                    <span class="cursor-blink">█</span>
-                </div>
-                <div class="hint-area" aria-live="assertive"></div>
+    <!-- CYPRESS Modal Overlay -->
+    <div id="cypress-modal" class="puzzle-modal " role="dialog" aria-modal="true" aria-labelledby="cypress-title">
+        <div class="modal-content-wrapper cypress-terminal">
+            <div class="w-full flex justify-end">
+                <button id="exit" class="font-bold text-2xl">X</button>
             </div>
+            <h2 id="cypress-title" class="terminal-title text-center text-4xl">Buggy Button</h2>
+            <div></div>
+            <div class="flex justify-center">
+                <img src="assets/cypress.jpg" alt="" style="max-width: 100%;">
+            </div>
+            <pre class="min-h-6 overflow-y-auto focus:outline-0" contenteditable="true" spellcheck="false">
+                <code id="cypress-code" class="language-javascript">
+                           cy.get("#").click();
+                </code>
+                </pre>
+            <div class="w-ful pt-3 flex justify-center items-center">
+                <button id="cypress-execute"
+                    class="p-2  border-[2px] border-green-600 font-extrabold rounded-lg active:scale-95 transition-transform duration-75">Execute</button>
+            </div>
+            <!-- <div class="hint-area" aria-live="assertive"></div> -->
         </div>
+    </div>
     </div>
 
     <!-- Python Modal Overlay -->
@@ -328,7 +329,8 @@
             </div>
             <div class="rails-content">
                 <h2 id="rails-title" class="rails-title">RUBY Di on Rail</h2>
-                <p class="rails-instruction">"Ruby is so unpopular that we had to put Ruby didi on train to make this meme"</p>
+                <p class="rails-instruction">"Ruby is so unpopular that we had to put Ruby didi on train to make this
+                    meme"</p>
 
                 <!-- Draggable Chain -->
                 <div class="chain-container">
@@ -540,6 +542,8 @@
 
     <!-- JavaScript -->
     <script src="scripts/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
 </body>
 
 </html>

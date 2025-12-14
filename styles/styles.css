@@ -76,18 +76,23 @@ body.modal-open {
   0% {
     clip: rect(10px, 9999px, 31px, 0);
   }
+
   20% {
     clip: rect(70px, 9999px, 71px, 0);
   }
+
   40% {
     clip: rect(30px, 9999px, 130px, 0);
   }
+
   60% {
     clip: rect(90px, 9999px, 50px, 0);
   }
+
   80% {
     clip: rect(20px, 9999px, 100px, 0);
   }
+
   100% {
     clip: rect(60px, 9999px, 70px, 0);
   }
@@ -97,29 +102,36 @@ body.modal-open {
   0% {
     clip: rect(65px, 9999px, 119px, 0);
   }
+
   20% {
     clip: rect(20px, 9999px, 140px, 0);
   }
+
   40% {
     clip: rect(80px, 9999px, 16px, 0);
   }
+
   60% {
     clip: rect(40px, 9999px, 200px, 0);
   }
+
   80% {
     clip: rect(100px, 9999px, 75px, 0);
   }
+
   100% {
     clip: rect(30px, 9999px, 115px, 0);
   }
 }
 
 @keyframes glitch-flicker {
+
   0%,
   90%,
   100% {
     opacity: 1;
   }
+
   92%,
   96% {
     opacity: 0.8;
@@ -186,9 +198,11 @@ body.modal-open {
   border-color: var(--glitch-color-2);
 }
 
-.card-title,.card-text{
-    color: white;
+.card-title,
+.card-text {
+  color: white;
 }
+
 .try-btn {
   background: var(--glitch-color-1);
   border: none;
@@ -260,10 +274,12 @@ body.modal-open {
 }
 
 @keyframes border-pulse {
+
   0%,
   100% {
     filter: hue-rotate(0deg);
   }
+
   50% {
     filter: hue-rotate(180deg);
   }
@@ -289,16 +305,20 @@ body.modal-open {
 }
 
 @keyframes glitch-pulse {
+
   0%,
   100% {
     transform: translate(0, 0);
   }
+
   25% {
     transform: translate(-2px, 2px);
   }
+
   50% {
     transform: translate(2px, -2px);
   }
+
   75% {
     transform: translate(-2px, -2px);
   }
@@ -311,10 +331,12 @@ body.modal-open {
 }
 
 @keyframes float-icon {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-10px) rotate(5deg);
   }
@@ -346,19 +368,24 @@ body.modal-open {
 }
 
 @keyframes glitch-text {
+
   0%,
   100% {
     transform: translate(0);
   }
+
   20% {
     transform: translate(-2px, 2px);
   }
+
   40% {
     transform: translate(2px, -2px);
   }
+
   60% {
     transform: translate(-2px, -2px);
   }
+
   80% {
     transform: translate(2px, 2px);
   }
@@ -396,7 +423,7 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   animation: modal-open 0.4s ease-out;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding: 1rem;
 }
 
@@ -409,9 +436,11 @@ body.modal-open {
     opacity: 0;
     transform: scale(0.8) skewX(5deg);
   }
+
   50% {
     transform: scale(1.05) skewX(-2deg);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) skewX(0);
@@ -431,16 +460,20 @@ body.modal-open {
 }
 
 @keyframes content-glitch {
+
   0%,
   100% {
     transform: translate(0, 0);
   }
+
   25% {
     transform: translate(-2px, 2px);
   }
+
   50% {
     transform: translate(2px, -2px);
   }
+
   75% {
     transform: translate(-2px, -2px);
   }
@@ -475,13 +508,14 @@ body.modal-open {
 .terminal-content {
   position: relative;
   z-index: 1;
-  overflow: auto !important;
+  overflow: hidden !important;
 }
 
 .terminal-title {
   color: var(--text-primary);
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
   text-shadow: 0 0 10px var(--text-primary);
 }
 
@@ -665,10 +699,12 @@ body.modal-open {
 }
 
 @keyframes sparkle {
+
   0%,
   100% {
     transform: translateX(-50%) scale(1) rotate(0deg);
   }
+
   50% {
     transform: translateX(-50%) scale(1.2) rotate(180deg);
   }
@@ -721,19 +757,24 @@ body.modal-open {
 }
 
 @keyframes chain-jitter {
+
   0%,
   100% {
     transform: translate(0, 0);
   }
+
   10% {
     transform: translate(-2px, 1px);
   }
+
   20% {
     transform: translate(2px, -1px);
   }
+
   30% {
     transform: translate(-1px, 2px);
   }
+
   40% {
     transform: translate(1px, -2px);
   }
@@ -798,13 +839,11 @@ body.modal-open {
   height: 100%;
   pointer-events: none;
   z-index: 10000;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, var(--scanline-opacity)) 0px,
-    transparent 1px,
-    transparent 2px,
-    rgba(0, 0, 0, var(--scanline-opacity)) 3px
-  );
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, var(--scanline-opacity)) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 0, 0, var(--scanline-opacity)) 3px);
   animation: scanline-move 8s linear infinite;
 }
 
@@ -812,6 +851,7 @@ body.modal-open {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(4px);
   }
@@ -868,9 +908,11 @@ body.modal-open {
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
+
   50% {
     transform: scale(1.1) rotate(5deg) skewX(10deg);
   }
+
   100% {
     opacity: 0;
     transform: scale(0.5) rotate(-5deg) skewX(-10deg);
@@ -883,13 +925,16 @@ body.modal-open {
 
 /* ===== ERROR GLITCH EFFECT ===== */
 @keyframes error-shake {
+
   0%,
   100% {
     transform: translateX(0);
   }
+
   25% {
     transform: translateX(-10px);
   }
+
   75% {
     transform: translateX(10px);
   }
@@ -901,11 +946,13 @@ body.modal-open {
 
 /* ===== SUCCESS EFFECT ===== */
 @keyframes success-pulse {
+
   0%,
   100% {
     border-color: #00ff00;
     box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
   }
+
   50% {
     border-color: #00ff00;
     box-shadow: 0 0 20px 10px rgba(0, 255, 0, 0);
@@ -916,9 +963,10 @@ body.modal-open {
   animation: success-pulse 0.5s ease-out;
 }
 
-span.text-muted{
-    color: white !important;
+span.text-muted {
+  color: white !important;
 }
+
 /* ===== TEAM MEMBER MODAL STYLES ===== */
 .team-content {
   background: #1a1a2e;
@@ -987,7 +1035,7 @@ span.text-muted{
   box-shadow: 0 0 20px var(--glitch-color-1);
 }
 
-.python-image{
+.python-image {
   width: 90%;
   height: 400px;
 }
