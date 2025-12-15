@@ -461,7 +461,7 @@
 
   /* =====  ON RAILS PUZZLE ===== */
   const RailsPuzzle = {
-    validCommands: "salary-6500".split(""),
+    validCommands: ["salary - 6500", "salary -6500", "salary- 65000", "salary minus 6500"],
 
     init() {
       const input = document.getElementById("rails-input")
@@ -481,13 +481,8 @@
     handleCommand(command) {
       const modal = document.getElementById("rails-modal")
 
-      // Check if valid command
-      const splitCommand = command.split("").filter((item) => item != " ")
-      const result = splitCommand.map((item) => {
-        return this.validCommands.includes(item)
-      })
 
-      if (!result.includes(false)) {
+      if (this.validCommands.includes(command)) {
         this.successfulPull()
         return
       }
