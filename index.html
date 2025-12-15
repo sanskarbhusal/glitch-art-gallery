@@ -62,7 +62,7 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title h4">Odoo</h3>
                                 <p class="card-text">
-                                <p class="card-text mb-3">Path to hell.</p>
+                                <p class="card-text mb-3">One app for all business and one update to crash them all</p>
                                 </p>
                                 <button class="btn btn-primary try-btn" data-target="python" draggable="true"
                                     aria-label="Drag Python puzzle to Meme Generator" aria-grabbed="false">
@@ -224,7 +224,7 @@
                 <div class="meme-generator-section mt-5">
                     <div id="meme-generator" class="meme-generator-dropzone" role="region"
                         aria-label="Meme Generator drop zone" aria-dropeffect="move" tabindex="0">
-                        <div class="dropzone-icon" aria-hidden="true">🧪</div>
+                        <div class="dropzone-icon" aria-hidden="true">👻</div>
                         <h3 class="dropzone-title">Meme Generator</h3>
                     </div>
                 </div>
@@ -267,7 +267,7 @@
             <div class="flex justify-center mt-3">
                 <img src="assets/cypress.png" alt="" style="max-width: 100%;">
             </div>
-            <pre class="min-h-6 overflow-y-auto focus:outline-0" contenteditable="true" spellcheck="false">
+            <pre class="min-h-6 overflow-y-auto focus:outline-0" onkeydown="return event.key !== 'Enter'" contenteditable="true" spellcheck="false">
                 <code id="cypress-code" class="language-javascript">
                            cy.get("").click();
                 </code>
@@ -514,7 +514,6 @@
     <!-- JavaScript -->
     <script src="scripts/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-
 </body>
 
 </html>

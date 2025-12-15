@@ -270,6 +270,7 @@
     init() {
       const input = document.getElementById("cypress-execute")
       const cypressCode = document.getElementById("cypress-code")
+      
       if (!input) return
       input.onclick = () => {
         this.handleCommand(cypressCode.innerText.trim())
