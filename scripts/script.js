@@ -265,6 +265,85 @@
 
   /* ===== VIM PUZZLE ===== */
   const VimPuzzle = {
+    validCommands: ["q", "q!", "wq"],
+
+    init() {
+      const input = document.getElementById("vim-input")
+      if (!input) return
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          this.handleCommand(input.value.trim())
+          input.value = ""
+        }
+
+        // Handle CTRL+[ (common Vim escape)
+        if (e.ctrlKey && e.key === "[") {
+          e.preventDefault()
+          this.showHint("HINT: You're on the right track, but try typing a command starting with :")
+        }
+      })
+    },
+
+    handleCommand(command) {
+      const output = document.querySelector("#vim-modal .terminal-output")
+      const modal = document.getElementById("vim-modal")
+
+      // Check if valid exit command
+      if (this.validCommands.includes(command.toLowerCase())) {
+        const line = document.createElement("p")
+        line.className = "terminal-line"
+        line.textContent = `:${command}`
+        output.appendChild(line)
+
+        const successLine = document.createElement("p")
+        successLine.className = "terminal-line"
+        successLine.textContent = "~ Exiting VIM... Success! ~"
+        successLine.style.color = "#00ff00"
+        output.appendChild(successLine)
+
+        modal.classList.add("success-effect")
+
+        setTimeout(() => {
+          ModalManager.close("vim", true)
+        }, 800)
+        return
+      }
+
+      // Wrong command
+      state.attempts.vim++
+      AudioEngine.playError()
+      modal.classList.add("error-glitch")
+      setTimeout(() => modal.classList.remove("error-glitch"), 300)
+
+      const line = document.createElement("p")
+      line.className = "terminal-line"
+      line.textContent = command ? `:${command}` : ":"
+      output.appendChild(line)
+
+      const errorLine = document.createElement("p")
+      errorLine.className = "terminal-line"
+      errorLine.style.color = "#ff0000"
+      errorLine.textContent = "E37: No write since last change (add ! to override)"
+      output.appendChild(errorLine)
+
+      // Show hint after 3 attempts
+      if (state.attempts.vim >= 3) {
+        this.showHint("HINT: Try a VIM command to exit (:q, :q!, or :wq)")
+      }
+
+      // Scroll to bottom
+      output.scrollTop = output.scrollHeight
+    },
+
+    showHint(message) {
+      const hintArea = document.querySelector("#vim-modal .hint-area")
+      hintArea.textContent = message
+    },
+  }  
+
+  /* ===== cypress PUZZLE ===== */
+  const cyPress = {
     validCommands: ['cy.get("#exit").click()'],
 
     init() {
@@ -760,13 +839,14 @@
 
         // Visual feedback - highlight drop zone
         dropZone.classList.add("drag-over")
+
       })
 
       // Remove highlight when dragging leaves
       dropZone.addEventListener("dragleave", (e) => {
         // Only remove if leaving the dropzone itself, not child elements
         if (e.target === dropZone) {
-          dropZone.classList.remove("drag-over")
+          dropZone.classList.remove("drag-over");
         }
       })
 
@@ -844,10 +924,11 @@
     KeyboardHandler.init()
 
     // Initialize puzzles
-    VimPuzzle.init()
+    cyPress.init()
     PythonPuzzle.init()
     RailsPuzzle.init()
     TeamPopup.init()
+    VimPuzzle.init()
 
     DragDropManager.init()
 

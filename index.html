@@ -30,9 +30,9 @@
                 <!-- Team Members -->
                 <h1 class="lead mb-4">Developed By</h1>
                 <div class="team-list d-flex flex-wrap justify-content-center gap-3 mb-4">
-                    <span class="team-member badge bg-dark">Salan</span>
-                    <span class="team-member badge bg-dark">Sanskar</span>
-                    <span class="team-member badge bg-dark">Ansal</span>
+                    <span class="team-member badge bg-dark">Salan Katuwal</span>
+                    <span class="team-member badge bg-dark">Sanskar Bhusal</span>
+                    <span class="team-member badge bg-dark">Anhsal Thapa</span>
                 </div>
                 <!-- TODO: Edit team names above by changing the text inside <span> tags -->
             </div>
@@ -94,23 +94,20 @@
 
                 <div class="row">
 
-                    <!-- Team Member Card -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card meme-card" data-card="team">
-                            <!-- <figure class="card-img-wrapper mb-0">
-                        <img src="assets/team-placeholder.png" class="card-img-top"
-                            alt="Random team member meme placeholder">
-                    </figure> -->
-                            <div class="card-body d-flex flex-column">
-                                <h3 class="card-title h4">Aashrikaa Chand</h3>
-                                <p class="card-text mb-3">QA Trainee</p>
-                                <button class="btn btn-primary mt-auto try-btn" data-target="team" draggable="true"
-                                    aria-label="Drag Team Member card to Meme Generator" aria-grabbed="false">
-                                    View
-                                </button>
-                            </div>
-                        </article>
-                    </div>
+                <!-- VIM Card -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card meme-card" data-card="vim">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h4">VIM</h3>
+                            <p class="card-text mb-2">Text-mode horror:The editor you can't escape.</p>
+                            <button class="btn btn-primary mt-auto try-btn" data-target="vim" draggable="true"
+                                aria-label="Drag Vim puzzle to Meme Generator" aria-grabbed="false">
+                                Try →
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
 
 
                     <!-- Team Member Card -->
@@ -206,6 +203,30 @@
 
                 </div>
 
+
+
+                <div class="row g-4 justify-content-center">
+
+
+                    <!-- Team Member Card -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card meme-card" data-card="team">
+                            <!-- <figure class="card-img-wrapper mb-0">
+                        <img src="assets/team-placeholder.png" class="card-img-top"
+                            alt="Random team member meme placeholder">
+                    </figure> -->
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h4">Aashrikaa Chand</h3>
+                                <p class="card-text mb-3">QA Trainee</p>
+                                <button class="btn btn-primary mt-auto try-btn" data-target="team" draggable="true"
+                                    aria-label="Drag Team Member card to Meme Generator" aria-grabbed="false">
+                                    View
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+
                 <!-- Team Member Card -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="card meme-card" data-card="team">
@@ -220,14 +241,21 @@
                     </article>
                 </div>
 
-                <!-- Meme Generator drop zone -->
-                <div class="meme-generator-section mt-5">
-                    <div id="meme-generator" class="meme-generator-dropzone" role="region"
-                        aria-label="Meme Generator drop zone" aria-dropeffect="move" tabindex="0">
-                        <div class="dropzone-icon" aria-hidden="true">👻</div>
-                        <h3 class="dropzone-title">Meme Generator</h3>
-                    </div>
+
                 </div>
+
+
+
+            </div>
+
+            <!-- Meme Generator drop zone -->
+            <div class="meme-generator-section mt-5">
+                <div id="meme-generator" class="meme-generator-dropzone" role="region"
+                    aria-label="Meme Generator drop zone" aria-dropeffect="move" tabindex="0">
+                    <div class="dropzone-icon" aria-hidden="true">👻</div>
+                    <h3 class="dropzone-title">Meme Generator</h3>
+                </div>
+            </div>
 
             </div>
 
@@ -267,7 +295,8 @@
             <div class="flex justify-center mt-3">
                 <img src="assets/cypress.png" alt="" style="max-width: 100%;">
             </div>
-            <pre class="min-h-6 overflow-y-auto focus:outline-0" onkeydown="return event.key !== 'Enter'" contenteditable="true" spellcheck="false">
+            <pre class="min-h-6 overflow-y-auto focus:outline-0" onkeydown="return event.key !== 'Enter'"
+                contenteditable="true" spellcheck="false">
                 <code id="cypress-code" class="language-javascript">
                            cy.get("").click();
                 </code>
@@ -384,7 +413,7 @@
     <div id="team3-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="team-title" hidden>
         <div class="modal-content-wrapper team-content">
             <div class="team3-inner">
-                <h2 id="team-title" class="team-title">Trainee 3: Shelsha Shrestha</h2>
+                <h2 id="team-title" class="team-title">Trainee 3: Shlesha Shrestha</h2>
                 <button type="button" class="btn-close btn-close-white" aria-label="Close" onclick="
                 document.getElementById('team3-modal').hidden = true;
                 document.body.style.overflow = 'auto';">
@@ -395,14 +424,11 @@
                      Replace this <img> src with real asset
                 ================================ -->
                 <div class="team-image-container">
-                    <img src="assets/google.png" alt="Team Member Meme" class="img-fluid rounded shadow team-image">
+                    <img src="assets/google.png" alt="Team Member Meme" class="img-fluid rounded shadow team-image" style="object-fit: cover;">
                 </div>
                 <!-- ================================
                      TEAM MEMBER PHOTO PLACEHOLDER — END
                 ================================ -->
-                <button class="btn btn-primary mt-4 close-team-btn" aria-label="Close team member popup">
-                    Close
-                </button>
             </div>
         </div>
     </div>
@@ -507,6 +533,36 @@
             </div>
         </div>
     </div>
+
+
+    <!-- VIM Modal Overlay -->
+    <div id="vim-modal" class="puzzle-modal" role="dialog" aria-modal="true" aria-labelledby="vim-title" hidden>
+        <div class="modal-content-wrapper vim-terminal">
+            <div class="terminal-bg">
+                <img src="assets/vim-wash.jpg" alt="" aria-hidden="true" class="terminal-bg-image">
+            </div>
+            <div class="terminal-content">
+                <h2 id="vim-title" class="terminal-title">VIM - The Inescapable Editor</h2>
+                <div class="terminal-output" aria-live="polite" aria-atomic="true">
+                    <p class="terminal-line">~ Welcome to VIM ~</p>
+                    <p class="terminal-line">~ Type a command to exit ~</p>
+                    <p class="terminal-line">~</p>
+                </div>
+                <div class="terminal-input-wrapper">
+                    <label for="vim-input" class="visually-hidden">Enter VIM command</label>
+                    <span class="terminal-prompt">:</span>
+                    <input type="text" id="vim-input" class="terminal-input" autocomplete="off" spellcheck="false"
+                        aria-describedby="vim-instructions">
+                    <span class="cursor-blink">█</span>
+                </div>
+                <p id="vim-instructions" class="visually-hidden">
+                    Type a VIM exit command such as :q, :q!, or :wq and press Enter to close this puzzle.
+                </p>
+                <div class="hint-area" aria-live="assertive"></div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Scanline Overlay for Glitch Effect -->
     <div class="scanlines" aria-hidden="true"></div>
