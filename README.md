@@ -1,5 +1,5 @@
-Documented by: `Sanskar Bhusal` <br>
-Version: `1.1`
+**Documented by:** `Sanskar Bhusal` <br>
+**Version:** `1.1`
 ## After you clone the repository, run the following command.
 
 `npm install` <br>
